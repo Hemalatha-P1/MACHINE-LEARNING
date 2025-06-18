@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(215, 226, 183);
+            background-size: cover;
+            background-position: center;
+            color: #4911ca;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #fa00a7;
+            font-size: 36px;
+        }
+
+        h3 {
+            color: #ff009d;
+            font-size: 40px;
+        }
+
+        div {
+            margin: 20px 0;
+            display: inline-block;
+            color: #9211c5;
+        }
+
+        h4 {
+            color: #4406f0;
+            font-size: 24px;
+        }
+
+        img {
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #c04172;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #f858f0;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0c84d4;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ company_name }}</h2>
+    <p>{{ company_description }}</p>
+
+    <h3>Company Stock Graphs</h3>
+    <div>
+        <h4>Stock Price Over Time</h4>
+        <img src="data:image/png;base64,{{ graphs['graph_1'] }}" alt="Stock Price Over Time">
+    </div>
+    <div>
+        <h4>Quarterly Revenue</h4>
+        <img src="data:image/png;base64,{{ graphs['graph_2'] }}" alt="Quarterly Revenue">
+    </div>
+    <div>
+        <h4>Yearly Growth Rate</h4>
+        <img src="data:image/png;base64,{{ graphs['graph_3'] }}" alt="Yearly Growth Rate">
+    </div>
+    <div>
+        <h4>Market Share Comparison</h4>
+        <img src="data:image/png;base64,{{ graphs['graph_4'] }}" alt="Market Share Comparison">
+    </div>
+    <div>
+        <h4>Customer Acquisition Trend</h4>
+        <img src="data:image/png;base64,{{ graphs['graph_5'] }}" alt="Customer Acquisition Trend">
+    </div>
+
+    <br><br>
+    <a href="{{ url_for('predict') }}">
+        <button>Go to Prediction</button>
+    </a>
+    <a href="{{ url_for('logout') }}">
+        <button>Logout</button>
+    </a>
+    <a href="{{ url_for('view_data') }}">
+        <button>View Data</button>
+    </a>
+</body>
+</html>

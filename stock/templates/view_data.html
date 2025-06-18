@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Data</title>
+    <style>
+        /* Body styling with background image */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/images/download.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: rgb(108, 117, 67);
+            padding: 50px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #dbb002;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Table styling */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for the table */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: hsl(180, 68%, 81%);
+            color: rgb(119, 25, 83);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(130, 236, 178);
+        }
+
+        tr:nth-child(odd) {
+            background-color: #aef7ca;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #43a8e7;
+            color: rgb(241, 7, 171);
+            font-size: 18px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: hsl(203, 86%, 48%);
+        }
+
+        /* Link styling */
+        a {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Prediction Data</h2>
+
+    <!-- Table displaying data -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Predicted Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row['Product Name'] }}</td>
+                <td>{{ row['Category'] }}</td>
+                <td>{{ row['Predicted Sales'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back button -->
+    <a href="{{ url_for('login') }}">
+        <button>Back to Home</button>
+    </a>
+
+</body>
+</html>

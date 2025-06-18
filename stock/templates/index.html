@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Body styling with background image */
+        body {
+            background-image: url("static/images/images.jpg") ; /* Make sure the image is in the static folder */
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center center; /* Centers the background image */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure full viewport height */
+            color: rgb(155, 29, 29); /* White text for better visibility on dark background */
+        }
+
+        /* Header styling */
+        h2 {
+            color: #f1c40f;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Styling the form */
+        form {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+            width: 100%;
+            max-width: 500px;
+            text-align: left;
+        }
+
+        /* Form input styling */
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        input[type="date"] {
+            background-color: hsl(191, 18%, 69%);
+            color: #2c3e50;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #3498db;
+            color: rgb(98, 110, 105);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Navigation Links styling */
+        a {
+            color: #158146;
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for logout and view data buttons */
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Welcome message with username -->
+    <h2>Welcome, {{ session['username'] }}</h2>
+
+    <!-- Prediction Form -->
+    <form method="POST" action="/predict">
+        <label>Product Name:</label>
+        <input type="text" name="product_name" required><br>
+
+        <label>Category:</label>
+        <input type="text" name="category" required><br>
+
+        <label>Rating:</label>
+        <input type="number" name="rating" step="0.1" required><br>
+
+        <label>Number of Reviews:</label>
+        <input type="number" name="num_reviews" required><br>
+
+        <label>Stock Quantity:</label>
+        <input type="number" name="stock_quantity" required><br>
+
+        <label>Discount:</label>
+        <input type="number" name="discount" step="0.01" required><br>
+
+        <label>Date Added:</label>
+        <input type="date" name="date_added" required><br>
+
+        <label>Price:</label>
+        <input type="number" name="price" step="0.01" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Navigation Links -->
+    <div class="links">
+        <a href="/view_data">View Stored Data</a><br>
+        <a href="/logout">Logout</a>
+    </div>
+    
+</body>
+</html>

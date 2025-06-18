@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction Result</title>
+    <style>
+        /* Body styling with background image */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/images/images (2).jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: rgb(128, 17, 255);
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #1ab1f7;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 34px;
+            color: rgb(11, 26, 238);
+            margin-bottom: 30px;
+          
+            font-weight: 200;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #0fe6c2;
+            color: white;
+            font-size: 18px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Link styling */
+        a {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+    <p>Predicted Sales: {{ predicted_sales }}</p>
+
+    <!-- Buttons for further actions -->
+    <a href="{{ url_for('make_another_prediction') }}">
+        <button>Make Another Prediction</button>
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <button>Logout</button>
+    </a>
+
+</body>
+</html>
